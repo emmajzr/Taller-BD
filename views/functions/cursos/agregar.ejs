@@ -1,0 +1,26 @@
+<%- include('../../components/header') %>
+
+<h1>Agregar Nuevo Curso</h1>
+
+<form action="/agregar_curso" method="POST" style="max-width: 500px; margin: 20px 0;">
+    
+    <div style="margin-bottom: 15px;">
+        <label for="nombre" style ="display:block; margin-bottom: 5px;
+         font-weight: bold;">Nombre:</label>
+         <input type="text" id="nombre" name="nombre" required style="width: 100%; padding: 8px;
+            border: 1px solid #ccc; border-radius: 4px;">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <label for="semestre" style="display: block; margin-bottom: 5px;
+        font-weight: bold;">Semestre:</label>
+        <input type="number" id="semestre" name="semestre" required min="1" max="9" style="width: 100%; padding: 8px;
+        border: 1px solid #ccc; border-radius: 4px;">
+    </div>
+
+    <button type="submit" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Agregar Curso</button>
+    <a href="/cursos" style="background-color: #6c757d; color: white; padding: 10px 20px; text-decoration: none; 
+    border-radius: 4px; margin-left: 10px;">Cancelar</a>
+</form>
+
+<%- include('../../components/footer') %>

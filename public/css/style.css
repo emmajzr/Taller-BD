@@ -1,0 +1,179 @@
+/* public/css/style.css */
+
+/* Reset básico - quitamos márgenes y padding por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo del body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Encabezado */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    padding: 20px 0;
+    color: #333;
+}
+
+/* MENÚ: COLOR AZUL */
+nav {
+    background-color: #0066cc;  /* Color azul */
+    padding: 15px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: white;           /* Texto blanco */
+    text-decoration: none;  /* Quitar subrayado */
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* HOVER: COLOR AMARILLO */
+nav ul li a:hover {
+    background-color: #ffd700;  /* Color amarillo */
+    color: #333;                 /* Texto oscuro */
+}
+
+/* Contenido principal */
+main {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    min-height: 400px;
+}
+
+table{
+    width: 100%;
+    border-collapse: 20px 0;
+    margin: 20px 0;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+th{
+    background-color: #0066cc;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+td{
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+tr:hover{
+    background-color: #f5f5f5;
+}
+
+tr :last-child td{
+    border-bottom: none;
+}
+
+.error-message{
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.sin-datos{
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: #666; 
+}
+
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 0.9em;
+}
+
+form {
+    max-width: 500px;
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+form input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ecc2ea;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.accines {
+    display: flex;
+    gap: 10px;
+}

@@ -1,0 +1,57 @@
+<%- include('components/header') %>
+<h2>Cursos</h2>
+<div style="margin-bottom: 20px;">
+   <a href="/agregar_curso" style="background-color: #0096cc; color: white;
+    padding: 10px 20px; text-decoration: none; border-radius: 5px;
+    display: inline-block;">Agregar Curso
+</a>
+</div>
+
+<% if (error) { %>
+    <div style = "color: red; padding: 10px; border: 1px; border-radius: 5px;">
+        <%= error %>
+    </div>3 
+<% } %>
+
+<% if(cursos.length > 0) { %>
+    <table style = "width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+            <tr style="background-color: #0066cc; color: white;">
+                <th style = "padding: 12px; text-align: left;">ID</th>
+                <th style = "padding: 12px; text-align: left;">Nombre de la Materia</th>
+                <th style = "padding: 12px; text-align: left;">Semestre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% cursos.forEach(function(curso) { %>
+                <tr style="background-color: #f2f2f2;">
+                    <td style = "padding: 12px;"><%= curso.id_curso %></td>
+                    <td style = "padding: 12px;"><%= curso.nombre_materia %></td>
+                    <td style = "padding: 12px;"><%= curso.semestre %></td>
+
+                    <td style = "padding: 12px;">
+                        <a href="/editar_curso/<%= curso.id_curso %>" style="background-color: #0096cc; 
+                            color: white; padding: 10px 20px; text-decoration: none; 
+                            border-radius: 3px; margin-right: 5px; display: inline-block;">
+                            Editar
+                        </a>
+
+                        <form action="/eliminar_curso/<%= curso.id_curso %>" method="POST" style="display: inline-block;">
+                            <button type="submit" style="background-color: #cc0000; color: white; 
+                                padding: 10px 20px; border: none; border-radius: 3px; cursor: pointer;">
+                                Eliminar
+                            </button>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <p style="margin-top: 20px;">
+        Total de cursos: <%= cursos.length %>
+    </p>
+<% } else { %>
+    <p style="margin-top: 20px; color: gray;">No hay cursos registrados.</p>
+<% } %>
+
+<%- include('components/footer') %>

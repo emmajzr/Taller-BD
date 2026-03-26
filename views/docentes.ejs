@@ -1,0 +1,66 @@
+<%- include('components/header') %>
+
+<h2>Docentes</h2>
+
+<div style="margin-bottom: 20px;">
+   <a href="/agregar_docente" style="background-color: #0096cc; color: white;
+    padding: 10px 20px; text-decoration: none; border-radius: 5px;
+    display: inline-block;">
+    Agregar Docente
+   </a>
+</div>
+
+<% if (error) { %>
+    <div style="color: red; padding: 10px; border: 1px solid red; border-radius: 5px;">
+        <%= error %>
+    </div>
+<% } %>
+
+<% if (docentes.length > 0) { %>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+            <tr style="background-color: #0066cc; color: white;">
+                <th style="padding: 12px;">ID</th>
+                <th style="padding: 12px;">Nombre del docente</th>
+                <th style="padding: 12px;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% docentes.forEach(function(docente) { %>
+                <tr style="background-color: #f2f2f2;">
+                    <td style="padding: 12px;"><%= docente.matricula_docente %></td>
+                    <td style="padding: 12px;"><%= docente.nombre %></td>
+                    <td style="padding: 12px; display: flex; gap: 10px; align-items: center; justify-content: flex-start;">
+                        
+                        <a href="/editar_docente/<%= docente.matricula_docente %>" 
+                           style="background-color: #0096cc; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">
+                           Editar
+                        </a>
+                        <a href="/horario_docente/<%= docente.matricula_docente %>" 
+                           style="background-color: #0096cc; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">
+                           Asignar Horario
+                        </a>
+                         <a href="/horario_docente_view/<%= docente.matricula_docente %>" 
+                           style="background-color: #0096cc; color: white; padding: 5px 10px; text-decoration: none; border-radius: 3px;">
+                           Ver Horario
+                        </a>
+                        <form action="/eliminar_docente/<%= docente.matricula_docente %>" method="POST" style="margin: 0;">
+                            <button type="submit" style="background-color: #cc0000; color: white; padding: 5px 10px; border: none; border-radius: 3px; cursor: pointer;">
+                                Eliminar
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <p style="margin-top: 20px;">
+        Total de docentes: <%= docentes.length %>
+    </p>
+
+<% } else { %>
+    <p style="margin-top: 20px; color: gray;">No hay docentes registrados.</p>
+<% } %>
+
+<%- include('components/footer') %>

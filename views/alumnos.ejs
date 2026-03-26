@@ -1,0 +1,72 @@
+<%- include('components/header') %>
+<h1>Listado de datos</h1>
+
+<!--Botones-->
+<div style="margin-bottom: 20px;">
+   <a href="/agregar" style="background-color: #0096cc; color: white;
+    padding: 10px 20px; text-decoration: none; border-radius: 5px;
+    display: inline-block;">Agregar Alumno
+</a>
+</div>
+
+<% if (error) { %>
+    <div style = "color: red; padding: 10px; border: 1px; border-radius: 5px;">
+        <%= error %>
+    </div>3 
+<% } %>
+
+<% if(alumnos.length > 0) { %>
+    <table style = "width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+            <tr style="background-color: #0066cc; color: white;">
+                <th style = "padding: 12px; text-align: left;">ID</th>
+                <th style = "padding: 12px; text-align: left;">Nombre</th>
+                <th style = "padding: 12px; text-align: left;">Email</th>
+                <th style = "padding: 12px; text-align: left;">Edad</th>
+                <th style = "padding: 12px; text-align: left;">Ciudad</th>
+                <th style = "padding: 12px; text-align: left;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% alumnos.forEach(function(alumno) { %>
+                <tr style="background-color: #f2f2f2;">
+                    <td style = "padding: 12px;"><%= alumno.id %></td>
+                    <td style = "padding: 12px;"><%= alumno.nombre %></td>
+                    <td style = "padding: 12px;"><%= alumno.email %></td>
+                    <td style = "padding: 12px;"><%= alumno.edad %></td>
+                    <td style = "padding: 12px;"><%= alumno.ciudad %></td>
+
+                    <td style="padding: 12px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+
+    <a href="/editar/<%= alumno.id %>" class="btn">
+        Editar
+    </a>
+
+    <a href="/horario_alumno/<%= alumno.id %>" class="btn">
+        Asignar Materia
+    </a>
+
+    <a href="/horario_alumno_view/<%= alumno.id %>" class="btn">
+        Ver Materias
+    </a>
+
+    <form action="/eliminar/<%= alumno.id %>" method="POST" style="margin: 0;">
+        <button type="submit" class="btn btn-danger">
+            Eliminar
+        </button>
+    </form>
+
+</td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <p style="margin-top: 20px;">
+        Total de alumnos: <%= alumnos.length %>
+    </p>
+<% } else { %>
+    <p style="margin-top: 20px; color: gray;">No hay alumnos registrados.</p>
+<% } %>
+
+<%- include('components/footer') %>

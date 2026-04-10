@@ -1,0 +1,134 @@
+<%- include('components/header') %>
+<h1>Listado de datos</h1>
+
+<!--Botones
+<div style="margin-bottom: 20px;">
+   <a href="/agregar" style="background-color: #0096cc; color: white;
+    padding: 10px 20px; text-decoration: none; border-radius: 5px;
+    display: inline-block;">Agregar Alumno
+</a>
+</div>-->
+
+<% if(cargas.length > 0) { %>
+    <table style = "width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+            <tr style="background-color: #0066cc; color: white;">
+                <th style = "padding: 12px; text-align: left;">ID</th>
+                <th style = "padding: 12px; text-align: left;">Nombre</th>
+                <th style = "padding: 12px; text-align: left;">Nombre de la Materia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% cargas.forEach(function(carga) { %>
+                <tr style="background-color: #f2f2f2;">
+                    <td style = "padding: 12px;"><%= carga.id %></td>
+                    <td style = "padding: 12px;"><%= carga.nombre %></td>
+                    <td style = "padding: 12px;"><%= carga.nombre_materia %></td>
+
+                    
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <p style="margin-top: 20px;">
+        Total de registros: <%= cargas.length %>
+    </p>
+<% } else { %>
+    <p style="margin-top: 20px; color: gray;">No hay registros disponibles.</p>
+<% } %>
+<hr>
+<div>
+    <% if(detalles && detalles.length > 0) { %>
+    <table style = "width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+            <tr style="background-color: #0066cc; color: white;">
+                <th style = "padding: 12px; text-align: left;">ID</th>
+                <th style = "padding: 12px; text-align: left;">Nombre de la Materia</th>
+                <th style = "padding: 12px; text-align: left;">Horario inicio</th>
+                <th style = "padding: 12px; text-align: left;">Horario fin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% detalles.forEach(function(a) { %>
+                <tr style="background-color: #f2f2f2;">
+                    <td style = "padding: 12px;"><%= a.id %></td>
+                    <td style = "padding: 12px;"><%= a.nombre_materia %></td>
+                    <td style = "padding: 12px;"><%= a.hora_inicio %></td>
+                    <td style = "padding: 12px;"><%= a.hora_fin %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+
+    </table>
+
+    <p style="margin-top: 20px;">
+        Total de registros: <%= detalles.length %>
+    </p>
+<% } else { %>
+    <p style="margin-top: 20px; color: gray;">No hay registros disponibles.</p>
+<% } %>
+</div>
+
+<hr>
+<% if(especificaciones && especificaciones.length > 0) { %>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+            <tr style="background-color: #0066cc; color: white;">
+                <th style="padding: 12px;">ID Grupo</th>
+                <th style="padding: 12px;">ID Horario</th>
+                <th style="padding: 12px;">Docente</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% especificaciones.forEach(function(e) { %>
+                <tr style="background-color: #f2f2f2;">
+                    <td style="padding: 12px;"><%= e.id_grupo %></td>
+                    <td style="padding: 12px;"><%= e.id_horario %></td>
+                    <td style="padding: 12px;"><%= e.nombre %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <p style="margin-top: 20px;">
+        Total de registros: <%= especificaciones.length %>
+    </p>
+<% } else { %>
+    <p style="margin-top: 20px; color: gray;">
+        No hay especificaciones disponibles.
+    </p>
+<% } %>
+
+<% if(alumnos_grupos && alumnos_grupos.length > 0) { %>
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+            <tr style="background-color: #28a745; color: white;">
+                <th style="padding: 12px;">Alumno</th>
+                <th style="padding: 12px;">ID Grupo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% alumnos_grupos.forEach(function(a) { %>
+                <tr style="background-color: #f2f2f2;">
+                    <td style="padding: 12px;"><%= a.nombre %></td>
+                    <td style="padding: 12px;">
+                        <%= a.id_grupo ? a.id_grupo : "Sin grupo" %>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <p style="margin-top: 20px;">
+        Total de registros: <%= alumnos_grupos.length %>
+    </p>
+<% } else { %>
+    <p style="margin-top: 20px; color: gray;">
+        No hay alumnos disponibles.
+    </p>
+<% } %>
+
+
+
+<%- include('components/footer') %>

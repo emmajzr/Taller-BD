@@ -11,6 +11,16 @@
             border: 1px solid #ccc; border-radius: 4px;">
     </div>
 
+    <div style="margin-bottom: 15px;">
+        <label for="carrera" style="display: block; margin-bottom: 5px;
+        font-weight: bold;">Carrera:</label>
+        <select id="carrera" name="carrera" required style="width: 100%; padding: 8px;
+        border: 1px solid #ccc; border-radius: 4px;">
+            <% carreras.forEach(carrera => { %>
+                    <option value="<%= carrera.id_carrera %>"><%= carrera.nombre_carrera %></option>
+                <% }) %>
+            </select>
+
 
     <button type="submit" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Agregar Docente</button>
     <a href="/docentes" style="background-color: #6c757d; color: white; padding: 10px 20px; text-decoration: none; 

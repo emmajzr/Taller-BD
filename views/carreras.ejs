@@ -1,0 +1,58 @@
+<%- include('components/header') %>
+<h1>Listado de datos</h1>
+
+<!--Botones-->
+<div style="margin-bottom: 20px;">
+   <a href="/agregar/carrera" style="background-color: #0096cc; color: white;
+    padding: 10px 20px; text-decoration: none; border-radius: 5px;
+    display: inline-block;">Agregar carrera
+</a>
+</div>
+
+<% if (error) { %>
+    <div style = "color: red; padding: 10px; border: 1px; border-radius: 5px;">
+        <%= error %>
+    </div>3 
+<% } %>
+
+<% if(carreras.length > 0) { %>
+    <table style = "width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <thead>
+            <tr style="background-color: #0066cc; color: white;">
+                <th style = "padding: 12px; text-align: left;">ID</th>
+                <th style = "padding: 12px; text-align: left;">Nombre</th>
+                <th style = "padding: 12px; text-align: left;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% carreras.forEach(function(carrera) { %>
+                <tr style="background-color: #f2f2f2;">
+                    <td style = "padding: 12px;"><%= carrera.id_carrera %></td>
+                    <td style = "padding: 12px;"><%= carrera.nombre_carrera %></td>
+
+                    <td style="padding: 12px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+
+    <a href="/editar/carrera/<%= carrera.id_carrera %>" class="btn">
+        Editar
+    </a>
+
+    <form action="/eliminar/carrera/<%= carrera.id_carrera %>" method="POST" style="margin: 0;">
+        <button type="submit" class="btn btn-danger">
+            Eliminar
+        </button>
+    </form>
+
+</td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <p style="margin-top: 20px;">
+        Total de carreras: <%= carreras.length %>
+    </p>
+<% } else { %>
+    <p style="margin-top: 20px; color: gray;">No hay carreras registradas.</p>
+<% } %>
+
+<%- include('components/footer') %>

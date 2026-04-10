@@ -22,6 +22,7 @@
             <tr style="background-color: #0066cc; color: white;">
                 <th style="padding: 12px;">ID</th>
                 <th style="padding: 12px;">Nombre del docente</th>
+                <th style="padding: 12px;">Carrera</th>
                 <th style="padding: 12px;">Acciones</th>
             </tr>
         </thead>
@@ -30,6 +31,7 @@
                 <tr style="background-color: #f2f2f2;">
                     <td style="padding: 12px;"><%= docente.matricula_docente %></td>
                     <td style="padding: 12px;"><%= docente.nombre %></td>
+                    <td style="padding: 12px;"><%= docente.nombre_carrera %></td>
                     <td style="padding: 12px; display: flex; gap: 10px; align-items: center; justify-content: flex-start;">
                         
                         <a href="/editar_docente/<%= docente.matricula_docente %>" 

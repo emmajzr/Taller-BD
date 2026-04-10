@@ -27,6 +27,16 @@
 
     </div> 
 
+     <div style="margin-bottom: 15px;">
+        <label for="carrera" style="display: block; margin-bottom: 5px;
+        font-weight: bold;">Carrera:</label>
+        <select id="carrera" name="carrera" required style="width: 100%; padding: 8px;
+        border: 1px solid #ccc; border-radius: 4px;">
+            <% carreras.forEach(carrera => { %>
+                <option value="<%= carrera.id_carrera %>"><%= carrera.nombre_carrera %></option>
+            <% }) %>
+        </select>
+
     <div style="margin-bottom: 15px;">
         <label for="ciudad" style="display: block; margin-bottom: 5px;
         font-weight: bold;">Ciudad:</label>

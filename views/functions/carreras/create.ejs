@@ -1,0 +1,57 @@
+<%- include('../../components/header') %>
+
+<h1>Agregar Nueva Carrera</h1>
+
+<form
+  action="/agregar/carrera"
+  method="POST"
+  style="max-width: 500px; margin: 20px 0"
+>
+  <div style="margin-bottom: 15px">
+    <label
+      for="nombre_carrera"
+      style="display: block; margin-bottom: 5px; font-weight: bold"
+      >Nombre:</label
+    >
+    <input
+      type="text"
+      id="nombre_carrera"
+      name="nombre_carrera"
+      required
+      style="
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      "
+    />
+  </div>
+
+  <button
+    type="submit"
+    style="
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    "
+  >
+    Agregar Carrera
+  </button>
+  <a
+    href="/carreras"
+    style="
+      background-color: #6c757d;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-left: 10px;
+    "
+    >Cancelar</a
+  >
+</form>
+
+<%- include('../../components/footer') %>
